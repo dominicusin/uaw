@@ -1,1 +1,55 @@
+name: UAW bootstrap snapshot checks
 
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-snapshot:
+    name: Syntax and evidence sanity checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            node --check "$file"
+          done < <(find bootstrap/src bootstrap/scripts bootstrap/test -type f -name '*.mjs' -print | sort)
+
+      - name: Validate JSON metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          for (const path of [
+            'bootstrap/integration-registry.json',
+          ]) {
+            JSON.parse(await readFile(path, 'utf8'));
+            console.log('valid JSON:', path);
+          }
+          NODE
+
+      - name: Verify captured test evidence is labelled
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -F '109' bootstrap/test-results.txt >/dev/null
+          grep -F 'PostgreSQL' bootstrap/SNAPSHOT-README.md >/dev/null
+          git diff --check
+          echo 'Captured local test evidence and snapshot limits are documented.'
