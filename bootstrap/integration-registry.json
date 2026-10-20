@@ -1,0 +1,510 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditDate": "2026-10-19",
+  "catalogObservation": {
+    "toolActionCount": 2368,
+    "namespaceCount": 196,
+    "note": "Runtime tool catalog counts; not proof every connector is authenticated or every operation is allowed."
+  },
+  "states": [
+    "connected",
+    "partial",
+    "read_only",
+    "unauthorised",
+    "unavailable"
+  ],
+  "integrations": [
+    {
+      "id": "microsoft-teams",
+      "service": "Microsoft Teams",
+      "catalogToolCount": 38,
+      "state": "partial",
+      "testedReads": [
+        "get_profile: success",
+        "list_teams: AADSTS500014"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "list_teams failed with AADSTS500014 (service principal disabled); no team/channel write verified."
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381b8a700f1f74457c11b",
+      "systemOfRecord": "Microsoft Teams",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_profile: success",
+        "list_teams: AADSTS500014"
+      ]
+    },
+    {
+      "id": "outlook-calendar",
+      "service": "Microsoft Outlook Calendar",
+      "catalogToolCount": 34,
+      "state": "partial",
+      "testedReads": [
+        "get_profile: success",
+        "list_calendars/get_mailbox_settings: MailboxNotEnabledForRESTAPI"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "list_calendars/get_mailbox_settings failed with MailboxNotEnabledForRESTAPI; scheduling is blocked."
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381749e66f130520e9267",
+      "systemOfRecord": "Outlook Calendar",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_profile: success",
+        "list_calendars/get_mailbox_settings: MailboxNotEnabledForRESTAPI"
+      ]
+    },
+    {
+      "id": "outlook-email",
+      "service": "Microsoft Outlook Email",
+      "catalogToolCount": 48,
+      "state": "partial",
+      "testedReads": [
+        "get_profile: success"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Message-level reads/writes not tested"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe259786443813d97d7fc42ed1d71b4",
+      "systemOfRecord": "Outlook Mail",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_profile: success"
+      ]
+    },
+    {
+      "id": "google-calendar",
+      "service": "Google Calendar",
+      "catalogToolCount": 0,
+      "state": "unavailable",
+      "testedReads": [],
+      "verifiedWrites": [],
+      "blockers": [
+        "No dedicated connector in runtime registry"
+      ],
+      "adapter": "Official Google Calendar API: FreeBusy, Events, OAuth and watch lifecycle",
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381019f60efdf1f429bf2",
+      "systemOfRecord": "Not connected",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [],
+      "adapterImplementation": {
+        "status": "prepared_mock_tested_not_live",
+        "path": "src/adapters/providers/google-calendar.mjs",
+        "notes": "Local opt-in adapter scaffold at src/adapters/providers/google-calendar.mjs; mock-tested only, no live token/connector."
+      }
+    },
+    {
+      "id": "calendly",
+      "service": "Calendly",
+      "catalogToolCount": 0,
+      "state": "unavailable",
+      "testedReads": [],
+      "verifiedWrites": [],
+      "blockers": [
+        "No dedicated connector in runtime registry"
+      ],
+      "adapter": "Calendly API v2, OAuth 2.1/PAT, minimal scopes and webhook endpoint",
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381c28200d67714790814",
+      "systemOfRecord": "Not connected",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [],
+      "adapterImplementation": {
+        "status": "prepared_mock_tested_not_live",
+        "path": "src/adapters/providers/calendly.mjs",
+        "notes": "Local opt-in adapter scaffold at src/adapters/providers/calendly.mjs; mock-tested only, no webhook receiver/signature verification or live token."
+      }
+    },
+    {
+      "id": "github",
+      "service": "GitHub",
+      "catalogToolCount": 89,
+      "state": "connected",
+      "testedReads": [
+        "get_profile: success",
+        "list_repositories: success, own list has 20 entries",
+        "search_repositories: similar repo is foreign"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "No own write-capable UAW repository found"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381cf8b58d66e8a63546d",
+      "systemOfRecord": "GitHub",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_profile: success",
+        "list_repositories: success, own list has 20 entries",
+        "search_repositories: similar repo is foreign"
+      ]
+    },
+    {
+      "id": "vercel",
+      "service": "Vercel",
+      "catalogToolCount": 235,
+      "state": "connected",
+      "testedReads": [
+        "get_auth_user: success",
+        "list_projects: success, 4 projects",
+        "search projects for UAW: 0 matches"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "No UAW project found; deployment not attempted"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe259786443814a9635c26a791a3a62",
+      "systemOfRecord": "Vercel",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_auth_user: success",
+        "list_projects: success, 4 projects",
+        "search projects for UAW: 0 matches"
+      ]
+    },
+    {
+      "id": "netlify",
+      "service": "Netlify",
+      "catalogToolCount": 0,
+      "state": "unavailable",
+      "testedReads": [],
+      "verifiedWrites": [],
+      "blockers": [
+        "No Netlify connector in runtime registry"
+      ],
+      "adapter": "Official Netlify API with scoped token, site ID and deployment status verification",
+      "notionRecordUrl": "https://app.notion.com/p/3fe259786443813fbfcaea82f2e9e655",
+      "systemOfRecord": "Not connected",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [],
+      "adapterImplementation": {
+        "status": "prepared_mock_tested_not_live",
+        "path": "src/adapters/providers/netlify.mjs",
+        "notes": "Local opt-in adapter scaffold at src/adapters/providers/netlify.mjs; mock-tested reads and verification only, no live site credentials."
+      }
+    },
+    {
+      "id": "linear",
+      "service": "Linear",
+      "catalogToolCount": 74,
+      "state": "connected",
+      "testedReads": [
+        "get_workspace: success",
+        "list_teams: success",
+        "list_issues(query=UAW): DOM-5",
+        "get_issue(DOM-5): success"
+      ],
+      "verifiedWrites": [
+        "Created audit comment 1c0aec65-b2e5-4c45-87a7-516fffbc3f40 on DOM-5; list_comments read-after-write returned the comment."
+      ],
+      "blockers": [
+        "DOM-5 is the current central issue; full issue-to-PR/deployment cycle not yet verified."
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe259786443819f806df5740470c39c",
+      "systemOfRecord": "Linear issues",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "Created audit comment 1c0aec65-b2e5-4c45-87a7-516fffbc3f40 on DOM-5; list_comments read-after-write returned the comment.",
+        "get_workspace: success",
+        "list_teams: success",
+        "list_issues(query=UAW): DOM-5",
+        "get_issue(DOM-5): success"
+      ]
+    },
+    {
+      "id": "asana",
+      "service": "Asana",
+      "catalogToolCount": 27,
+      "state": "partial",
+      "testedReads": [
+        "get_me: success",
+        "get_teams: success (IT)",
+        "get_projects: empty result",
+        "search_tasks: payment_required"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Advanced task search is Premium gated; no task write verified"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381b1a5e4d8809ff972b6",
+      "systemOfRecord": "Asana tasks",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_me: success",
+        "get_teams: success (IT)",
+        "get_projects: empty result",
+        "search_tasks: payment_required"
+      ]
+    },
+    {
+      "id": "notion",
+      "service": "Notion",
+      "catalogToolCount": 40,
+      "state": "connected",
+      "testedReads": [
+        "search(UAW): success",
+        "fetch UAW Home/Resources/Tasks: success"
+      ],
+      "verifiedWrites": [
+        "Created audit report page https://app.notion.com/p/3fe25978644381bd9443f9a201503efb; fetch returned the persisted page.",
+        "Updated demo-001 to Status=Blocked; fetch confirmed the persisted property.",
+        "Expanded UAW Resources schema and created 18 Integration records; query_data_sources returned 18 integration rows."
+      ],
+      "blockers": [
+        "UAW Resources schema is extended; the host still lacks durable event processing and external API adapters."
+      ],
+      "assets": {
+        "home": "https://app.notion.com/p/3fe25978644381d99622dd4562db1ce5?pvs=204",
+        "resources": "https://app.notion.com/p/9683937bcaa445a6862ac61c7d18f3b6?pvs=204",
+        "tasks": "https://app.notion.com/p/830eceb11f3f43f094e95a6cfce35aeb?pvs=204"
+      },
+      "notionRecordUrl": "https://app.notion.com/p/3fe2597864438102b076f8bd049f2198",
+      "systemOfRecord": "UAW workflow and resource graph",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "Created audit report page https://app.notion.com/p/3fe25978644381bd9443f9a201503efb; fetch returned the persisted page.",
+        "Updated demo-001 to Status=Blocked; fetch confirmed the persisted property.",
+        "Expanded UAW Resources schema and created 18 Integration records; query_data_sources returned 18 integration rows.",
+        "search(UAW): success",
+        "fetch UAW Home/Resources/Tasks: success"
+      ]
+    },
+    {
+      "id": "box",
+      "service": "Box",
+      "catalogToolCount": 49,
+      "state": "connected",
+      "testedReads": [
+        "who_am_i: success",
+        "search_files_keyword(UAW): valid empty result"
+      ],
+      "verifiedWrites": [],
+      "blockers": [],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381588708e09832e9f1e2",
+      "systemOfRecord": "Box files and versions",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "who_am_i: success",
+        "search_files_keyword(UAW): valid empty result"
+      ]
+    },
+    {
+      "id": "gamma",
+      "service": "Gamma",
+      "catalogToolCount": 21,
+      "state": "connected",
+      "testedReads": [
+        "get_gammas: success, existing document returned"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Generation/edit/export not tested"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381babcebd1b720721f4c",
+      "systemOfRecord": "Gamma documents",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_gammas: success, existing document returned"
+      ]
+    },
+    {
+      "id": "canva",
+      "service": "Canva",
+      "catalogToolCount": 40,
+      "state": "connected",
+      "testedReads": [
+        "search(UAW): valid empty result",
+        "search_designs(UAW): valid empty result"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Write operations not tested"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381cd91f5f7e9c38e0254",
+      "systemOfRecord": "Canva designs",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "search(UAW): valid empty result",
+        "search_designs(UAW): valid empty result"
+      ]
+    },
+    {
+      "id": "excalidraw",
+      "service": "Excalidraw",
+      "catalogToolCount": 0,
+      "state": "unavailable",
+      "testedReads": [],
+      "verifiedWrites": [],
+      "blockers": [
+        "No Excalidraw connector in runtime registry"
+      ],
+      "adapter": "Native .excalidraw scene JSON and assets; preserve editability rather than exporting PNG only",
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381c09457e1a2d1bd46f3",
+      "systemOfRecord": "Not connected",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [],
+      "adapterImplementation": {
+        "status": "prepared_mock_tested_not_live",
+        "path": "src/adapters/providers/excalidraw.mjs",
+        "notes": "Local native-scene JSON validator/serializer at src/adapters/providers/excalidraw.mjs; not a hosted-account connector."
+      }
+    },
+    {
+      "id": "figma",
+      "service": "Figma",
+      "catalogToolCount": 48,
+      "state": "connected",
+      "testedReads": [
+        "whoami: success"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Starter plan: specs_enabled=false, code_layers_enabled=false; file write not tested"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381309c57fcd2399e3de8",
+      "systemOfRecord": "Figma design files",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "whoami: success"
+      ]
+    },
+    {
+      "id": "wix",
+      "service": "Wix",
+      "catalogToolCount": 31,
+      "state": "connected",
+      "testedReads": [
+        "get_profile: success",
+        "ListWixSites: allunity returned",
+        "GetSiteContext(allunity): success"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "Velo disabled; commerce write permissions not tested"
+      ],
+      "assets": {
+        "siteName": "allunity",
+        "siteUrl": "https://dominicusin.wixsite.com/website",
+        "plan": "Free",
+        "published": true,
+        "veloEnabled": false
+      },
+      "notionRecordUrl": "https://app.notion.com/p/3fe25978644381be85b5d4f5f1d3f336",
+      "systemOfRecord": "Wix site/CMS/business APIs",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "get_profile: success",
+        "ListWixSites: allunity returned",
+        "GetSiteContext(allunity): success"
+      ]
+    },
+    {
+      "id": "automations",
+      "service": "Automations",
+      "catalogToolCount": 7,
+      "state": "partial",
+      "testedReads": [
+        "list: 0 automations",
+        "peek: 0 automations",
+        "list_event_sources: Action not found"
+      ],
+      "verifiedWrites": [],
+      "blockers": [
+        "No schedules found and event-source discovery unavailable"
+      ],
+      "notionRecordUrl": "https://app.notion.com/p/3fe2597864438152a023e247df81c8bd",
+      "systemOfRecord": "UAW workflow schedules",
+      "defaultAutonomyLevel": "L0",
+      "capabilitiesVerified": [
+        "list: 0 automations",
+        "peek: 0 automations",
+        "list_event_sources: Action not found"
+      ]
+    }
+  ],
+  "observedWriteEvidence": {
+    "linear": {
+      "operation": "save_comment(issueId=DOM-5)",
+      "objectId": "1c0aec65-b2e5-4c45-87a7-516fffbc3f40",
+      "readAfterWriteVerified": true,
+      "latestAuditCommentId": "010aec1a-a30e-46d0-8017-b0fe13c6be93",
+      "latestAuditCommentReadAfterWriteVerified": true
+    },
+    "notion": {
+      "createdReportUrl": "https://app.notion.com/p/3fe25978644381bd9443f9a201503efb?pvs=204",
+      "workflowStatusReadBack": "Blocked",
+      "integrationRecordsCreated": 18,
+      "integrationRecordsReadBack": 18
+    },
+    "github": {
+      "operation": "create_pull_request(draft=true)",
+      "repository": "dominicusin/dominicusin.github.io",
+      "pullRequestNumber": 451,
+      "url": "https://github.com/dominicusin/dominicusin.github.io/pull/451",
+      "branch": "uaw/fix-blowfish-search-i18n-2026-10-19",
+      "headSha": "f7a64d566eea0cbade2d9453fdc9ea5eaffc0b81",
+      "draft": true,
+      "merged": false,
+      "readAfterWriteVerified": true,
+      "e2eRun": {
+        "runNumber": 814,
+        "conclusion": "success",
+        "url": "https://github.com/dominicusin/dominicusin.github.io/actions/runs/39351745645"
+      },
+      "qualityCiRun": {
+        "runNumber": 497,
+        "conclusion": "success",
+        "url": "https://github.com/dominicusin/dominicusin.github.io/actions/runs/39351746511"
+      },
+      "productionDeployPerformed": false,
+      "note": "A narrow accessibility remediation discovered through live CI failure. This is a repository-side PR, not proof the standalone UAW orchestration workflow is connected end-to-end."
+    }
+  },
+  "runtimeCore": {
+    "referenceExecutor": "src/executor.mjs",
+    "featuresImplemented": [
+      "DAG layer execution with bounded concurrency",
+      "exact actor/integration/operation/workflow/environment scope matching for L2/L3/L4",
+      "adapter preflight",
+      "bounded exponential retry for transient execution errors",
+      "read-after-write verification evidence",
+      "reconcile-before-repeat after unknown outcomes",
+      "verification failures do not replay mutations",
+      "serialized file-store writes",
+      "Official GitHub REST adapter for repository/branch/commit/issue/PR/Actions reads, UAW-marker issue creation, draft-only PR creation and verification (mock-tested)",
+      "Official Linear GraphQL adapter with API-key/OAuth auth, GraphQL error handling, UAW-marker issue creation and read-back (mock-tested)",
+      "Vercel REST reads and Preview-only verification requiring expected commit, allow-listed HTTPS host and 2xx health probe; no deployment writes exposed",
+      "Notion REST adapter using API version 2026-03-11 for page search, data-source row/child-page creation and independent read-back verification (mock-tested)",
+      "File-backed event inbox with exact-body HMAC-SHA256 verification, event dedupe, single-process leases, bounded retry, pause/resume and dead-letter states (mock-tested)"
+    ],
+    "limits": [
+      "single-process reference only",
+      "no distributed transaction/queue",
+      "no production provider credentials or live API adapter registration",
+      "host MCP tools are not directly exposed to standalone Node process",
+      "GitHub, Linear, Vercel, Notion, Google Calendar, Calendly and Netlify API adapter tests use mock HTTP responses only; no live adapter tokens/credentials are configured",
+      "Event inbox is a single-process file-backed reference, not a multi-host transactional queue or HTTP webhook server; provider-specific webhook signature wrapping/routes are not configured",
+      "Marker-based pre-write reconciliation does not guarantee cross-process exactly-once semantics without a durable per-key lease or uniqueness constraint",
+      "External host MCP connectors are not directly callable from the standalone Node.js process; live automation needs an explicit host bridge or isolated official API credentials"
+    ],
+    "providerAdapterExamples": {
+      "google-calendar": "src/adapters/providers/google-calendar.mjs",
+      "calendly": "src/adapters/providers/calendly.mjs",
+      "netlify": "src/adapters/providers/netlify.mjs",
+      "excalidraw": "src/adapters/providers/excalidraw.mjs",
+      "github": "src/adapters/providers/github.mjs",
+      "linear": "src/adapters/providers/linear.mjs",
+      "vercel": "src/adapters/providers/vercel.mjs",
+      "notion": "src/adapters/providers/notion.mjs"
+    },
+    "testRun": {
+      "date": "2026-10-20",
+      "command": "npm test",
+      "testsPassed": 54,
+      "testsFailed": 0,
+      "note": "Fresh local core/event-inbox and mock provider adapter tests only; not live integration proof."
+    },
+    "eventInbox": "src/event-inbox.mjs"
+  }
+}
