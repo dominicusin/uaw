@@ -1,0 +1,5 @@
+
+> uaw-bootstrap@0.1.0 validate
+> node ./scripts/validate.mjs
+
+Registry validated: 18 integrations; connected=9, partial=5, unavailable=4

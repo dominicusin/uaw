@@ -1,0 +1,65 @@
+name: UAW CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uaw-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  postgres-and-contract-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: uaw_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d uaw_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      UAW_TEST_DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/uaw_test
+      UAW_TEST_RUNTIME_DATABASE_URL: postgres://uaw_runtime:uaw_runtime@127.0.0.1:5432/uaw_test
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install optional PostgreSQL test client
+        run: npm install --no-save --no-package-lock --no-audit --no-fund pg@8.23.1
+
+      - name: Create restricted runtime role
+        run: |
+          node --input-type=module <<'NODE'
+          import pg from 'pg';
+          const client = new pg.Client({ connectionString: process.env.UAW_TEST_DATABASE_URL });
+          try {
+            await client.connect();
+            await client.query("CREATE ROLE uaw_runtime LOGIN PASSWORD 'uaw_runtime'");
+          } finally {
+            await client.end();
+          }
+          NODE
+
+      - name: Run full test suite and integration registry validation
+        run: npm run check
+
+      - name: Run webhook-to-worker end-to-end contract
+        run: npm run test:e2e

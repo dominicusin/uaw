@@ -1,0 +1,683 @@
+
+> uaw-bootstrap@0.1.0 check
+> npm test && npm run validate
+
+
+> uaw-bootstrap@0.1.0 test
+> node --test
+
+TAP version 13
+# Subtest: Google Calendar requires injected credential and uses FreeBusy endpoint
+ok 1 - Google Calendar requires injected credential and uses FreeBusy endpoint
+  ---
+  duration_ms: 22.683748
+  type: 'test'
+  ...
+# Subtest: Google Calendar event creation is idempotent by UAW key and reconciles existing event
+ok 2 - Google Calendar event creation is idempotent by UAW key and reconciles existing event
+  ---
+  duration_ms: 1.75829
+  type: 'test'
+  ...
+# Subtest: Google Calendar surfaces HTTP conflict/rate-limit status without leaking token
+ok 3 - Google Calendar surfaces HTTP conflict/rate-limit status without leaking token
+  ---
+  duration_ms: 0.437492
+  type: 'test'
+  ...
+# Subtest: Calendly requires a user or organization to list event types and returns paged response
+ok 4 - Calendly requires a user or organization to list event types and returns paged response
+  ---
+  duration_ms: 0.580953
+  type: 'test'
+  ...
+# Subtest: Calendly creates only the requested webhook subscription and validates inputs
+ok 5 - Calendly creates only the requested webhook subscription and validates inputs
+  ---
+  duration_ms: 0.44329
+  type: 'test'
+  ...
+# Subtest: Calendly converts API 401 into a typed provider error
+ok 6 - Calendly converts API 401 into a typed provider error
+  ---
+  duration_ms: 0.521735
+  type: 'test'
+  ...
+# Subtest: Netlify lists site deployments and preserves pagination header evidence
+ok 7 - Netlify lists site deployments and preserves pagination header evidence
+  ---
+  duration_ms: 0.772193
+  type: 'test'
+  ...
+# Subtest: Netlify verifies deployment state, expected commit and HTTP health independently
+ok 8 - Netlify verifies deployment state, expected commit and HTTP health independently
+  ---
+  duration_ms: 0.725935
+  type: 'test'
+  ...
+# Subtest: Netlify refuses to claim verification when the commit does not match
+ok 9 - Netlify refuses to claim verification when the commit does not match
+  ---
+  duration_ms: 0.551159
+  type: 'test'
+  ...
+# Subtest: Netlify retryable status remains visible to the orchestrator
+ok 10 - Netlify retryable status remains visible to the orchestrator
+  ---
+  duration_ms: 0.776839
+  type: 'test'
+  ...
+# Subtest: Excalidraw scene validates and serializes editable JSON with native fields
+ok 11 - Excalidraw scene validates and serializes editable JSON with native fields
+  ---
+  duration_ms: 0.321241
+  type: 'test'
+  ...
+# Subtest: Excalidraw rejects duplicate IDs and malformed root data
+ok 12 - Excalidraw rejects duplicate IDs and malformed root data
+  ---
+  duration_ms: 0.348041
+  type: 'test'
+  ...
+# Subtest: Provider HTTP helper encodes query parameters and tokens are never needed in URLs
+ok 13 - Provider HTTP helper encodes query parameters and tokens are never needed in URLs
+  ---
+  duration_ms: 0.268634
+  type: 'test'
+  ...
+# Subtest: GitHub requires a credential and sends the documented API headers
+ok 14 - GitHub requires a credential and sends the documented API headers
+  ---
+  duration_ms: 0.420097
+  type: 'test'
+  ...
+# Subtest: GitHub issue creation reconciles by UAW marker before creating a duplicate
+ok 15 - GitHub issue creation reconciles by UAW marker before creating a duplicate
+  ---
+  duration_ms: 0.640971
+  type: 'test'
+  ...
+# Subtest: GitHub draft PR creation is idempotent and refuses an unrelated PR on the same branch pair
+ok 16 - GitHub draft PR creation is idempotent and refuses an unrelated PR on the same branch pair
+  ---
+  duration_ms: 0.793834
+  type: 'test'
+  ...
+# Subtest: GitHub PR verification requires draft, open state, branch and marker to match
+ok 17 - GitHub PR verification requires draft, open state, branch and marker to match
+  ---
+  duration_ms: 0.2935
+  type: 'test'
+  ...
+# Subtest: Linear API-key and OAuth modes send correct Authorization values
+ok 18 - Linear API-key and OAuth modes send correct Authorization values
+  ---
+  duration_ms: 0.710733
+  type: 'test'
+  ...
+# Subtest: Linear handles GraphQL errors even when HTTP status is 200
+ok 19 - Linear handles GraphQL errors even when HTTP status is 200
+  ---
+  duration_ms: 0.205482
+  type: 'test'
+  ...
+# Subtest: Linear issue creation reconciles UAW markers and independently reads back the issue
+ok 20 - Linear issue creation reconciles UAW markers and independently reads back the issue
+  ---
+  duration_ms: 0.613671
+  type: 'test'
+  ...
+# Subtest: Vercel lists projects and deployments with explicit filters
+ok 21 - Vercel lists projects and deployments with explicit filters
+  ---
+  duration_ms: 0.575935
+  type: 'test'
+  ...
+# Subtest: Vercel Preview verification requires ready state, exact commit, allowlisted host and 2xx health
+ok 22 - Vercel Preview verification requires ready state, exact commit, allowlisted host and 2xx health
+  ---
+  duration_ms: 0.546051
+  type: 'test'
+  ...
+# Subtest: Vercel verifier rejects external paths and never health-checks unapproved hosts or production
+ok 23 - Vercel verifier rejects external paths and never health-checks unapproved hosts or production
+  ---
+  duration_ms: 0.682842
+  type: 'test'
+  ...
+# Subtest: Vercel Preview verifier requires expected commit and refuses to probe production
+ok 24 - Vercel Preview verifier requires expected commit and refuses to probe production
+  ---
+  duration_ms: 0.270607
+  type: 'test'
+  ...
+# Subtest: Notion uses API version and paginated search
+ok 25 - Notion uses API version and paginated search
+  ---
+  duration_ms: 0.550327
+  type: 'test'
+  ...
+# Subtest: Notion resource-row creation uses a stable UAW ID and verifies read-after-write
+ok 26 - Notion resource-row creation uses a stable UAW ID and verifies read-after-write
+  ---
+  duration_ms: 0.994289
+  type: 'test'
+  ...
+# Subtest: Notion independently verifies page title and parent
+ok 27 - Notion independently verifies page title and parent
+  ---
+  duration_ms: 0.224379
+  type: 'test'
+  ...
+# Subtest: Notion HTTP error status is preserved and secret is never placed in URL
+ok 28 - Notion HTTP error status is preserved and secret is never placed in URL
+  ---
+  duration_ms: 0.405925
+  type: 'test'
+  ...
+# Subtest: CI workflow provisions PostgreSQL 16 with a readiness probe
+ok 29 - CI workflow provisions PostgreSQL 16 with a readiness probe
+  ---
+  duration_ms: 0.832882
+  type: 'test'
+  ...
+# Subtest: CI workflow creates a separate runtime role and runs the live DB suite
+ok 30 - CI workflow creates a separate runtime role and runs the live DB suite
+  ---
+  duration_ms: 0.213984
+  type: 'test'
+  ...
+# Subtest: CI workflow has read-only repository permissions and bounded execution time
+ok 31 - CI workflow has read-only repository permissions and bounded execution time
+  ---
+  duration_ms: 0.125114
+  type: 'test'
+  ...
+# Subtest: DAG layers independent nodes and sorts deterministically
+ok 32 - DAG layers independent nodes and sorts deterministically
+  ---
+  duration_ms: 2.173418
+  type: 'test'
+  ...
+# Subtest: planner rejects unknown dependencies, duplicate IDs and cycles
+ok 33 - planner rejects unknown dependencies, duplicate IDs and cycles
+  ---
+  duration_ms: 0.36796
+  type: 'test'
+  ...
+# Subtest: idempotency key is deterministic and workflow scoped
+ok 34 - idempotency key is deterministic and workflow scoped
+  ---
+  duration_ms: 0.160886
+  type: 'test'
+  ...
+# Subtest: accepted API call without independent evidence is not success
+ok 35 - accepted API call without independent evidence is not success
+  ---
+  duration_ms: 0.153766
+  type: 'test'
+  ...
+# Subtest: L0/L1/L2 autonomy gates writes with exact approval scope
+ok 36 - L0/L1/L2 autonomy gates writes with exact approval scope
+  ---
+  duration_ms: 0.234033
+  type: 'test'
+  ...
+# Subtest: L3 policy and L4 critical actions require exact scope matches
+ok 37 - L3 policy and L4 critical actions require exact scope matches
+  ---
+  duration_ms: 0.164061
+  type: 'test'
+  ...
+# Subtest: duplicate event IDs are deduplicated
+ok 38 - duplicate event IDs are deduplicated
+  ---
+  duration_ms: 0.176579
+  type: 'test'
+  ...
+# Subtest: workflow survives atomic file write and reload
+ok 39 - workflow survives atomic file write and reload
+  ---
+  duration_ms: 15.141363
+  type: 'test'
+  ...
+# Subtest: executor runs dependency layers and only marks independently verified steps succeeded
+ok 40 - executor runs dependency layers and only marks independently verified steps succeeded
+  ---
+  duration_ms: 2.148883
+  type: 'test'
+  ...
+# Subtest: executor blocks L2 writes without approval and runs them after scoped approval
+ok 41 - executor blocks L2 writes without approval and runs them after scoped approval
+  ---
+  duration_ms: 1.453092
+  type: 'test'
+  ...
+# Subtest: executor retries bounded transient failures with exponential backoff
+ok 42 - executor retries bounded transient failures with exponential backoff
+  ---
+  duration_ms: 1.118651
+  type: 'test'
+  ...
+# Subtest: executor does not blindly repeat a step with an unknown outcome; it reconciles first
+ok 43 - executor does not blindly repeat a step with an unknown outcome; it reconciles first
+  ---
+  duration_ms: 0.30671
+  type: 'test'
+  ...
+# Subtest: executor leaves unverified mutations in needs_verification and reconciles on resume
+ok 44 - executor leaves unverified mutations in needs_verification and reconciles on resume
+  ---
+  duration_ms: 0.793995
+  type: 'test'
+  ...
+# Subtest: executor blocks missing adapters and failing preflight
+ok 45 - executor blocks missing adapters and failing preflight
+  ---
+  duration_ms: 0.403732
+  type: 'test'
+  ...
+# Subtest: executor never repeats a mutation just because verification itself failed
+ok 46 - executor never repeats a mutation just because verification itself failed
+  ---
+  duration_ms: 0.487405
+  type: 'test'
+  ...
+# Subtest: executor enforces retry limit across resumed calls
+ok 47 - executor enforces retry limit across resumed calls
+  ---
+  duration_ms: 0.71573
+  type: 'test'
+  ...
+# Subtest: executor rejects missing operation classification instead of defaulting it to read
+ok 48 - executor rejects missing operation classification instead of defaulting it to read
+  ---
+  duration_ms: 0.36159
+  type: 'test'
+  ...
+# Subtest: executor runs independent steps concurrently but respects layer dependencies
+ok 49 - executor runs independent steps concurrently but respects layer dependencies
+  ---
+  duration_ms: 12.042057
+  type: 'test'
+  ...
+# Subtest: Webhook HMAC validation uses exact raw body and rejects malformed signatures
+ok 50 - Webhook HMAC validation uses exact raw body and rejects malformed signatures
+  ---
+  duration_ms: 1.150899
+  type: 'test'
+  ...
+# Subtest: Webhook inbox verifies and hashes byte payloads without UTF-8 normalization
+ok 51 - Webhook inbox verifies and hashes byte payloads without UTF-8 normalization
+  ---
+  duration_ms: 4.207663
+  type: 'test'
+  ...
+# Subtest: Webhook inbox deduplicates provider event IDs and rejects ID reuse with changed body
+ok 52 - Webhook inbox deduplicates provider event IDs and rejects ID reuse with changed body
+  ---
+  duration_ms: 3.055402
+  type: 'test'
+  ...
+# Subtest: Webhook inbox rejects invalid signatures before persisting anything
+ok 53 - Webhook inbox rejects invalid signatures before persisting anything
+  ---
+  duration_ms: 1.168193
+  type: 'test'
+  ...
+# Subtest: Event sources pause/resume, and completion requires verified evidence/current lease
+ok 54 - Event sources pause/resume, and completion requires verified evidence/current lease
+  ---
+  duration_ms: 10.902053
+  type: 'test'
+  ...
+# Subtest: Expired leases are reclaimed with new fencing token; stale worker cannot complete
+ok 55 - Expired leases are reclaimed with new fencing token; stale worker cannot complete
+  ---
+  duration_ms: 5.184826
+  type: 'test'
+  ...
+# Subtest: Event failure uses bounded exponential retry and dead-letters exhausted work
+ok 56 - Event failure uses bounded exponential retry and dead-letters exhausted work
+  ---
+  duration_ms: 6.508559
+  type: 'test'
+  ...
+# Subtest: Event inbox redacts secrets and dead-letters an interrupted final attempt
+ok 57 - Event inbox redacts secrets and dead-letters an interrupted final attempt
+  ---
+  duration_ms: 3.405857
+  type: 'test'
+  ...
+# Subtest: Event inbox converts a crashed final worker attempt to dead-letter after lease expiry
+ok 58 - Event inbox converts a crashed final worker attempt to dead-letter after lease expiry
+  ---
+  duration_ms: 5.975847
+  type: 'test'
+  ...
+# Subtest: PostgreSQL integration: dedupe, concurrent claims, fencing, retry and dead-letter redrive
+ok 59 - PostgreSQL integration: dedupe, concurrent claims, fencing, retry and dead-letter redrive # SKIP set UAW_TEST_DATABASE_URL and install optional package pg to run against a real database
+  ---
+  duration_ms: 0.673769
+  type: 'test'
+  ...
+# Subtest: PostgreSQL schema provides durable uniqueness, queue indexes, and attempt history
+ok 60 - PostgreSQL schema provides durable uniqueness, queue indexes, and attempt history
+  ---
+  duration_ms: 14.090161
+  type: 'test'
+  ...
+# Subtest: Postgres webhook ingress verifies exact raw body before DB access and persists no signature
+ok 61 - Postgres webhook ingress verifies exact raw body before DB access and persists no signature
+  ---
+  duration_ms: 2.747752
+  type: 'test'
+  ...
+# Subtest: Postgres webhook ingress rejects signed non-JSON bodies before DB access
+ok 62 - Postgres webhook ingress rejects signed non-JSON bodies before DB access
+  ---
+  duration_ms: 0.386037
+  type: 'test'
+  ...
+# Subtest: Duplicate delivery reads existing event and body mismatch is a hard conflict
+ok 63 - Duplicate delivery reads existing event and body mismatch is a hard conflict
+  ---
+  duration_ms: 0.584658
+  type: 'test'
+  ...
+# Subtest: Claim is transactional, uses SKIP LOCKED, writes lease and attempt audit
+ok 64 - Claim is transactional, uses SKIP LOCKED, writes lease and attempt audit
+  ---
+  duration_ms: 0.801506
+  type: 'test'
+  ...
+# Subtest: Claim rolls back and releases client when attempt audit fails
+ok 65 - Claim rolls back and releases client when attempt audit fails
+  ---
+  duration_ms: 0.549686
+  type: 'test'
+  ...
+# Subtest: Lease heartbeat extends only a live owner/token lease and synchronizes attempt audit
+ok 66 - Lease heartbeat extends only a live owner/token lease and synchronizes attempt audit
+  ---
+  duration_ms: 0.573601
+  type: 'test'
+  ...
+# Subtest: Lease heartbeat rejects invalid durations and rolls back when the lease is stale or attempt audit is missing
+ok 67 - Lease heartbeat rejects invalid durations and rolls back when the lease is stale or attempt audit is missing
+  ---
+  duration_ms: 0.528185
+  type: 'test'
+  ...
+# Subtest: Complete requires verified evidence and updates attempt audit under fencing token
+ok 68 - Complete requires verified evidence and updates attempt audit under fencing token
+  ---
+  duration_ms: 0.635382
+  type: 'test'
+  ...
+# Subtest: Fail sanitizes sensitive data and computes bounded exponential retry
+ok 69 - Fail sanitizes sensitive data and computes bounded exponential retry
+  ---
+  duration_ms: 1.24785
+  type: 'test'
+  ...
+# Subtest: Redrive preserves lifetime attempt count and increases budget instead of colliding with attempt history
+ok 70 - Redrive preserves lifetime attempt count and increases budget instead of colliding with attempt history
+  ---
+  duration_ms: 0.281342
+  type: 'test'
+  ...
+# Subtest: Provider pause is persisted through an upsert
+ok 71 - Provider pause is persisted through an upsert
+  ---
+  duration_ms: 2.931892
+  type: 'test'
+  ...
+# Subtest: worker renews the lease while execute is running and only completes with verified evidence
+ok 72 - worker renews the lease while execute is running and only completes with verified evidence
+  ---
+  duration_ms: 12.863662
+  type: 'test'
+  ...
+# Subtest: worker fences execution after a heartbeat failure and does not settle stale lease
+ok 73 - worker fences execution after a heartbeat failure and does not settle stale lease
+  ---
+  duration_ms: 5.806669
+  type: 'test'
+  ...
+# Subtest: worker sends execution errors through bounded queue failure settlement
+ok 74 - worker sends execution errors through bounded queue failure settlement
+  ---
+  duration_ms: 0.653058
+  type: 'test'
+  ...
+# Subtest: worker refuses to mark success when execute does not return independent verification evidence
+ok 75 - worker refuses to mark success when execute does not return independent verification evidence
+  ---
+  duration_ms: 0.509307
+  type: 'test'
+  ...
+# Subtest: worker treats uncertain completion settlement as ambiguous and never follows with fail
+ok 76 - worker treats uncertain completion settlement as ambiguous and never follows with fail
+  ---
+  duration_ms: 0.521174
+  type: 'test'
+  ...
+# Subtest: worker start and stop interrupts idle polling without claiming extra work
+ok 77 - worker start and stop interrupts idle polling without claiming extra work
+  ---
+  duration_ms: 0.260262
+  type: 'test'
+  ...
+# Subtest: worker validates required queue methods, identity and lease timing
+ok 78 - worker validates required queue methods, identity and lease timing
+  ---
+  duration_ms: 0.44969
+  type: 'test'
+  ...
+# Subtest: GitHub provider route verifies X-Hub-Signature-256 raw bytes and deduplicates X-GitHub-Delivery
+ok 79 - GitHub provider route verifies X-Hub-Signature-256 raw bytes and deduplicates X-GitHub-Delivery
+  ---
+  duration_ms: 37.221946
+  type: 'test'
+  ...
+# Subtest: Linear route validates current Linear-Timestamp and signed-body webhookTimestamp, with HMAC over raw body
+ok 80 - Linear route validates current Linear-Timestamp and signed-body webhookTimestamp, with HMAC over raw body
+  ---
+  duration_ms: 19.237443
+  type: 'test'
+  ...
+# Subtest: Calendly route signs timestamp dot raw body, rejects stale timestamps, and deduplicates exact body retries
+ok 81 - Calendly route signs timestamp dot raw body, rejects stale timestamps, and deduplicates exact body retries
+  ---
+  duration_ms: 13.670847
+  type: 'test'
+  ...
+# Subtest: provider route constructors fail closed on malformed paths and timestamp windows
+ok 82 - provider route constructors fail closed on malformed paths and timestamp windows
+  ---
+  duration_ms: 0.63403
+  type: 'test'
+  ...
+# Subtest: GitHub HMAC helper matches the official documented test vector
+ok 83 - GitHub HMAC helper matches the official documented test vector
+  ---
+  duration_ms: 0.332148
+  type: 'test'
+  ...
+# Subtest: runtime config creates explicit local-only provider routes and never embeds secret values in paths
+ok 84 - runtime config creates explicit local-only provider routes and never embeds secret values in paths
+  ---
+  duration_ms: 2.108012
+  type: 'test'
+  ...
+# Subtest: runtime config rejects missing database URL without echoing credentials
+ok 85 - runtime config rejects missing database URL without echoing credentials
+  ---
+  duration_ms: 0.511871
+  type: 'test'
+  ...
+# Subtest: runtime config rejects malformed or non-PostgreSQL database URLs without values
+ok 86 - runtime config rejects malformed or non-PostgreSQL database URLs without values
+  ---
+  duration_ms: 0.537839
+  type: 'test'
+  ...
+# Subtest: runtime config requires an explicit secret for every enabled provider
+ok 87 - runtime config requires an explicit secret for every enabled provider
+  ---
+  duration_ms: 0.345677
+  type: 'test'
+  ...
+# Subtest: runtime config rejects unsupported, duplicated and empty provider names
+ok 88 - runtime config rejects unsupported, duplicated and empty provider names
+  ---
+  duration_ms: 0.427196
+  type: 'test'
+  ...
+# Subtest: runtime config prevents public bind unless explicitly opted in
+ok 89 - runtime config prevents public bind unless explicitly opted in
+  ---
+  duration_ms: 0.295764
+  type: 'test'
+  ...
+# Subtest: runtime config validates port bounds and syntax
+ok 90 - runtime config validates port bounds and syntax
+  ---
+  duration_ms: 0.649042
+  type: 'test'
+  ...
+# Subtest: HTTP ingress accepts raw-byte HMAC webhook and enqueues once
+ok 91 - HTTP ingress accepts raw-byte HMAC webhook and enqueues once
+  ---
+  duration_ms: 36.639647
+  type: 'test'
+  ...
+# Subtest: HTTP ingress acknowledges repeated delivery idempotently
+ok 92 - HTTP ingress acknowledges repeated delivery idempotently
+  ---
+  duration_ms: 12.163155
+  type: 'test'
+  ...
+# Subtest: HTTP ingress rejects invalid signature without exposing it or the configured secret
+ok 93 - HTTP ingress rejects invalid signature without exposing it or the configured secret
+  ---
+  duration_ms: 5.061065
+  type: 'test'
+  ...
+# Subtest: HTTP ingress enforces JSON, UTF-8 and body-size boundaries before queue insert
+ok 94 - HTTP ingress enforces JSON, UTF-8 and body-size boundaries before queue insert
+  ---
+  duration_ms: 8.541692
+  type: 'test'
+  ...
+# Subtest: HTTP ingress rejects malformed JSON and duplicate/missing event IDs
+ok 95 - HTTP ingress rejects malformed JSON and duplicate/missing event IDs
+  ---
+  duration_ms: 10.235907
+  type: 'test'
+  ...
+# Subtest: HTTP ingress isolates routes and methods
+ok 96 - HTTP ingress isolates routes and methods
+  ---
+  duration_ms: 5.610341
+  type: 'test'
+  ...
+# Subtest: HTTP ingress rejects event-id reuse with different body as a conflict
+ok 97 - HTTP ingress rejects event-id reuse with different body as a conflict
+  ---
+  duration_ms: 4.988329
+  type: 'test'
+  ...
+# Subtest: HTTP ingress returns a generic retryable response when queue storage fails
+ok 98 - HTTP ingress returns a generic retryable response when queue storage fails
+  ---
+  duration_ms: 4.28783
+  type: 'test'
+  ...
+# Subtest: HTTP ingress resolves secrets per request and fails closed if secret is unavailable
+ok 99 - HTTP ingress resolves secrets per request and fails closed if secret is unavailable
+  ---
+  duration_ms: 3.760847
+  type: 'test'
+  ...
+# Subtest: HTTP ingress applies in-flight backpressure
+ok 100 - HTTP ingress applies in-flight backpressure
+  ---
+  duration_ms: 7.604756
+  type: 'test'
+  ...
+# Subtest: HTTP ingress exposes a liveness probe and a database-backed readiness probe
+ok 101 - HTTP ingress exposes a liveness probe and a database-backed readiness probe
+  ---
+  duration_ms: 5.686012
+  type: 'test'
+  ...
+# Subtest: HTTP ingress reserves unique health/readiness paths outside configured provider routes
+ok 102 - HTTP ingress reserves unique health/readiness paths outside configured provider routes
+  ---
+  duration_ms: 0.650765
+  type: 'test'
+  ...
+# Subtest: E2E contract: signed GitHub webhook is enqueued once and the worker independently verifies then completes it
+ok 103 - E2E contract: signed GitHub webhook is enqueued once and the worker independently verifies then completes it
+  ---
+  duration_ms: 35.902391
+  type: 'test'
+  ...
+# Subtest: worker runtime config accepts explicit DB, unique worker ID and host executor with safe defaults
+ok 104 - worker runtime config accepts explicit DB, unique worker ID and host executor with safe defaults
+  ---
+  duration_ms: 1.750838
+  type: 'test'
+  ...
+# Subtest: worker runtime config fails closed for missing or malformed database URL without echoing credentials
+ok 105 - worker runtime config fails closed for missing or malformed database URL without echoing credentials
+  ---
+  duration_ms: 0.577908
+  type: 'test'
+  ...
+# Subtest: worker runtime config requires a worker identity and an absolute local JS executor module path
+ok 106 - worker runtime config requires a worker identity and an absolute local JS executor module path
+  ---
+  duration_ms: 0.269736
+  type: 'test'
+  ...
+# Subtest: worker runtime config rejects unsafe worker identifiers
+ok 107 - worker runtime config rejects unsafe worker identifiers
+  ---
+  duration_ms: 0.305538
+  type: 'test'
+  ...
+# Subtest: worker runtime config validates heartbeat, lease, poll, and attempt limits
+ok 108 - worker runtime config validates heartbeat, lease, poll, and attempt limits
+  ---
+  duration_ms: 0.298898
+  type: 'test'
+  ...
+# Subtest: worker runtime config rejects inverted or unsafe retry delay settings
+ok 109 - worker runtime config rejects inverted or unsafe retry delay settings
+  ---
+  duration_ms: 0.175538
+  type: 'test'
+  ...
+# Subtest: worker entry point fails closed when required configuration is absent and prints no credentials
+ok 110 - worker entry point fails closed when required configuration is absent and prints no credentials
+  ---
+  duration_ms: 39.011958
+  type: 'test'
+  ...
+1..110
+# tests 110
+# suites 0
+# pass 109
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 1147.435518
+
+> uaw-bootstrap@0.1.0 validate
+> node ./scripts/validate.mjs
+
+Registry validated: 18 integrations; connected=9, partial=5, unavailable=4

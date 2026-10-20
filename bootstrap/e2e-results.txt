@@ -1,0 +1,20 @@
+
+> uaw-bootstrap@0.1.0 test:e2e
+> node --test test/webhook-worker.e2e.test.mjs
+
+TAP version 13
+# Subtest: E2E contract: signed GitHub webhook is enqueued once and the worker independently verifies then completes it
+ok 1 - E2E contract: signed GitHub webhook is enqueued once and the worker independently verifies then completes it
+  ---
+  duration_ms: 35.469947
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 110.740238
