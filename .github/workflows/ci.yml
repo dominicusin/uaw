@@ -17,4 +17,4 @@ jobs:
       - name: Run state durability tests
         run: |
           cd "${GITHUB_WORKSPACE%/*}"
-          python -m pytest uaw/tests/test_state_durability.py -q
+          python -m pytest uaw/tests/test_state_durability.py uaw/tests/test_idempotency.py -q
