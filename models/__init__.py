@@ -19,7 +19,7 @@ UAW Models Package
 - AuditEvent: Журнал операций
 """
 
-from .base import BaseModel, EntityType, UAWIdentifier
+from .base import BaseModel, EntityType, EntityStatus, UAWIdentifier
 from .person import Person, PersonBuilder
 from .team import Team, TeamBuilder
 from .project import Project, ProjectBuilder, ProjectStatus, ProjectVisibility
@@ -27,7 +27,8 @@ from .task import Task, TaskBuilder, TaskStatus, TaskPriority
 from .issue import Issue, IssueBuilder, IssueStatus, IssueType, IssueSeverity
 from .repository import (
     Repository, RepositoryBuilder, RepositoryStatus, RepositoryVisibility,
-    Branch, BranchProtection, Commit, PullRequest
+    Branch, BranchBuilder, BranchProtection, Commit, CommitBuilder, PullRequestStatus,
+    PullRequest, PullRequestBuilder
 )
 from .deployment import (
     Deployment, DeploymentBuilder, DeploymentEnvironment, DeploymentStatus, DeploymentType,
@@ -43,7 +44,7 @@ from .event import (
 )
 from .workflow import (
     Workflow, WorkflowBuilder, WorkflowStatus, WorkflowTriggerType,
-    StepStatus, WorkflowCondition, WorkflowAction, WorkflowStep, WorkflowTrigger
+    StepStatus, WorkflowStepType, ExecutionMode, WorkflowCondition, WorkflowAction, WorkflowStep, WorkflowTrigger
 )
 from .integration import (
     Integration, IntegrationBuilder, IntegrationStatus, IntegrationType,

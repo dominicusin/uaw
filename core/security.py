@@ -6,7 +6,7 @@ Security Manager for UAW
 from dataclasses import dataclass, field
 from datetime import datetime, timezone, timedelta
 from enum import Enum, auto
-from typing import Any, Dict, List, Optional, Set, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 import hashlib
 import secrets
 import hmac

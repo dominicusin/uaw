@@ -9,7 +9,7 @@ from enum import Enum
 import aiohttp
 import json
 
-from .base import BaseAdapter, AdapterConfig, AdapterResult, AdapterStatus
+from .base import AdapterConfig, AdapterResult, AdapterStatus, AuthMethod, BaseAdapter
 
 
 class ExcalidrawConfig(AdapterConfig):
@@ -25,7 +25,7 @@ class ExcalidrawConfig(AdapterConfig):
             timeout=30,
             max_retries=3,
             rate_limit=100,  # Requests per minute
-            auth_method="none",  # Excalidraw has limited API, mostly client-side
+            auth_method=AuthMethod.NONE,  # Excalidraw has limited API, mostly client-side
             requires_auth=False,
             supports_read=True,
             supports_write=True,

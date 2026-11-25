@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from uaw.tests.test_core import (
     TestUAWCore,
     TestStateManager,
+    TestStateDurability,
     TestResourceMapper,
     TestSecurityManager,
     TestAuditLogger,
@@ -51,6 +52,7 @@ def create_test_suite():
     # Core tests
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestUAWCore))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestStateManager))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestStateDurability))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestResourceMapper))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestSecurityManager))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestAuditLogger))

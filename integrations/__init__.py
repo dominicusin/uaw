@@ -28,6 +28,8 @@ from .base import (
     IntegrationRateLimitError,
 )
 
+from .registry import IntegrationRegistry
+
 from .github_integration import GitHubIntegration, GitHubConfig
 from .asana_integration import AsanaIntegration, AsanaConfig
 from .calendar_integration import CalendarIntegration, CalendarConfig
@@ -135,6 +137,7 @@ __all__ = [
     "document_library_integration",
     
     # Collections
+    "IntegrationRegistry",
     "INTEGRATIONS",
     "AVAILABLE_INTEGRATIONS",
     "UNAVAILABLE_INTEGRATIONS",

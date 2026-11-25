@@ -4,7 +4,7 @@ Workflow Model for UAW
 """
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from datetime import datetime, timezone
 from enum import Enum
 
@@ -13,6 +13,7 @@ from .base import BaseModel, EntityType, UAWIdentifier
 
 class WorkflowStatus(Enum):
     """Status of a workflow"""
+    PENDING = "pending"
     DRAFT = "draft"
     READY = "ready"
     RUNNING = "running"
@@ -29,6 +30,22 @@ class WorkflowTriggerType(Enum):
     WEBHOOK = "webhook"
     EVENT = "event"
     CONDITION = "condition"
+
+
+class WorkflowStepType(str, Enum):
+    """Type of a workflow step."""
+    ACTION = "action"
+    CONDITION = "condition"
+    WAIT = "wait"
+    PARALLEL = "parallel"
+    LOOP = "loop"
+
+
+class ExecutionMode(str, Enum):
+    """Orchestration mode for a workflow."""
+    SEQUENTIAL = "sequential"
+    PARALLEL = "parallel"
+    SMART = "smart"
 
 
 class StepStatus(Enum):
@@ -152,7 +169,7 @@ class WorkflowStep:
     step_id: str
     name: str
     description: Optional[str] = None
-    step_type: str = "action"  # action, condition, wait, parallel, loop
+    step_type: WorkflowStepType = WorkflowStepType.ACTION  # action, condition, wait, parallel, loop
     
     # For action steps
     action: Optional[WorkflowAction] = None
@@ -556,7 +573,6 @@ class Workflow(BaseModel):
             custom_fields=data.get("custom_fields", {}),
             created_at=data.get("created_at", datetime.now(timezone.utc).isoformat()),
             updated_at=data.get("updated_at", datetime.now(timezone.utc).isoformat()),
-            created_by=data.get("created_by"),
             updated_by=data.get("updated_by"),
             metadata=data.get("metadata", {}),
             tags=data.get("tags", []),

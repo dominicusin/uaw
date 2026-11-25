@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uaw"
+version = "0.1.0"
+description = "Unified Agentic Workspace"
+requires-python = ">=3.10"
+dependencies = [
+  "aiohttp>=3.9",
+  "fastapi>=0.110",
+  "pydantic>=2",
+  "croniter>=2",
+  "PyYAML>=6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

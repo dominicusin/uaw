@@ -9,6 +9,7 @@ import uuid
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from enum import Enum, auto
+import os
 from typing import Any, Dict, List, Optional, Tuple, Union
 from pathlib import Path
 
@@ -142,8 +143,8 @@ class UAWCore:
     
     def __init__(
         self,
-        state_dir: Union[str, Path] = "/workspace/uaw/state",
-        config_dir: Union[str, Path] = "/workspace/uaw/config"
+        state_dir: Union[str, Path] = os.getenv("UAW_STATE_DIR", str(Path.home() / ".local" / "state" / "uaw")),
+        config_dir: Union[str, Path] = os.getenv("UAW_CONFIG_DIR", str(Path.home() / ".config" / "uaw"))
     ):
         self.state_dir = Path(state_dir)
         self.config_dir = Path(config_dir)
