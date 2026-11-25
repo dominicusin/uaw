@@ -16,7 +16,7 @@ UAW Adapters Package
 
 from .base import BaseAdapter, AdapterConfig, AdapterResult, AdapterStatus
 
-from .teams_adapter import MicrosoftTeamsAdapter, MicrosoftTeamsConfig
+from .teams_adapter import MicrosoftTeamsAdapter, TeamsConfig
 from .calendly_adapter import CalendlyAdapter, CalendlyConfig
 from .vercel_adapter import VercelAdapter, VercelConfig
 from .gamma_adapter import GammaAdapter, GammaConfig
@@ -59,7 +59,9 @@ AVAILABLE_ADAPTERS = {
     "wix": wix_adapter,
 }
 
+from .registry import AdapterRegistry
 __all__ = [
+    "AdapterRegistry",
     # Base
     "BaseAdapter",
     "AdapterConfig",
@@ -67,7 +69,7 @@ __all__ = [
     "AdapterStatus",
     
     # Config classes
-    "MicrosoftTeamsConfig",
+    "TeamsConfig",
     "CalendlyConfig",
     "VercelConfig",
     "GammaConfig",

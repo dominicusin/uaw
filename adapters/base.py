@@ -18,6 +18,7 @@ class AdapterStatus(Enum):
     CONFIGURED = "configured"
     UNAVAILABLE = "unavailable"
     ERROR = "error"
+    UNAUTHORISED = "unauthorised"
 
 
 class AuthMethod(Enum):
@@ -43,6 +44,10 @@ class AdapterConfig:
     
     # Authentication
     auth_method: AuthMethod = AuthMethod.NONE
+    requires_auth: bool = False
+    supports_read: bool = True
+    supports_write: bool = False
+    supports_webhooks: bool = False
     api_key: Optional[str] = None
     access_token: Optional[str] = None
     client_id: Optional[str] = None

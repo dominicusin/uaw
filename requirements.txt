@@ -1,0 +1,5 @@
+aiohttp>=3.9
+fastapi>=0.110
+pydantic>=2
+croniter>=2
+PyYAML>=6

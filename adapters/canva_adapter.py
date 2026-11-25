@@ -9,7 +9,7 @@ from enum import Enum
 import aiohttp
 import json
 
-from .base import BaseAdapter, AdapterConfig, AdapterResult, AdapterStatus
+from .base import AdapterConfig, AdapterResult, AdapterStatus, AuthMethod, BaseAdapter
 
 
 class CanvaConfig(AdapterConfig):
@@ -25,7 +25,7 @@ class CanvaConfig(AdapterConfig):
             timeout=30,
             max_retries=3,
             rate_limit=100,  # Requests per minute
-            auth_method="oauth2",
+            auth_method=AuthMethod.OAUTH2,
             requires_auth=True,
             supports_read=True,
             supports_write=True,

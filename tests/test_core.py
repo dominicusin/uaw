@@ -13,7 +13,7 @@ from uaw.core.resource_mapping import ResourceMapper
 from uaw.core.security import SecurityManager, PermissionLevel
 from uaw.core.audit import AuditLogger, AuditEventType
 
-from uaw.models.workflow import Workflow, WorkflowStep, WorkflowStepType, WorkflowStatus
+from uaw.models.workflow import Workflow, WorkflowStep, WorkflowStatus
 from uaw.models.issue import Issue, IssueType, IssueSeverity, IssueStatus
 from uaw.models.person import Person
 

@@ -114,11 +114,11 @@ class WebhookHandler:
             
         # GitHub использует sha256
         if self.provider == WebhookProvider.GITHUB:
-            expected_signature = f"sha256={hmac.new(
+            expected_signature = "sha256=" + hmac.new(
                 self.secret.encode(),
                 payload,
                 hashlib.sha256
-            ).hexdigest()}"
+            ).hexdigest()
             return hmac.compare_digest(expected_signature, signature)
             
         # Vercel использует sha1

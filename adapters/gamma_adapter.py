@@ -9,7 +9,7 @@ from enum import Enum
 import aiohttp
 import json
 
-from .base import BaseAdapter, AdapterConfig, AdapterResult, AdapterStatus
+from .base import AdapterConfig, AdapterResult, AdapterStatus, AuthMethod, BaseAdapter
 
 
 class GammaConfig(AdapterConfig):
@@ -25,7 +25,7 @@ class GammaConfig(AdapterConfig):
             timeout=30,
             max_retries=3,
             rate_limit=60,  # Requests per minute
-            auth_method="bearer_token",
+            auth_method=AuthMethod.BEARER_TOKEN,
             requires_auth=True,
             supports_read=True,
             supports_write=True,

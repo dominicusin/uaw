@@ -4,7 +4,7 @@ Repository Model for UAW
 """
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from datetime import datetime, timezone
 from enum import Enum
 
@@ -32,6 +32,13 @@ class BranchProtection(Enum):
     REQUIRES_REVIEW = "requires_review"
     REQUIRES_STATUS_CHECKS = "requires_status_checks"
     FULL_PROTECTION = "full_protection"
+
+
+class PullRequestStatus(str, Enum):
+    """Pull request lifecycle status."""
+    OPEN = "open"
+    CLOSED = "closed"
+    MERGED = "merged"
 
 
 @dataclass
@@ -466,3 +473,39 @@ class RepositoryBuilder:
             default_branch=getattr(self, "_default_branch", "main"),
             external_ids=getattr(self, "_external_ids", {})
         )
+
+
+@dataclass
+class BranchBuilder:
+    """Small builder for :class:`Branch`."""
+    name: str = ""
+    sha: str = ""
+    is_default: bool = False
+    is_protected: bool = False
+    protection_level: BranchProtection = BranchProtection.NONE
+
+    def build(self) -> Branch:
+        return Branch(
+            name=self.name, sha=self.sha, is_default=self.is_default,
+            is_protected=self.is_protected, protection_level=self.protection_level,
+        )
+
+
+@dataclass
+class CommitBuilder:
+    """Small builder for :class:`Commit`."""
+    sha: str = ""
+    message: str = ""
+
+    def build(self) -> Commit:
+        return Commit(sha=self.sha, message=self.message)
+
+
+@dataclass
+class PullRequestBuilder:
+    """Small builder for :class:`PullRequest`."""
+    number: int = 0
+    title: str = ""
+
+    def build(self) -> PullRequest:
+        return PullRequest(number=self.number, title=self.title)

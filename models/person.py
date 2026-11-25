@@ -4,7 +4,7 @@ Person Model for UAW
 """
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 from datetime import datetime, timezone
 
 from .base import BaseModel, EntityType, UAWIdentifier

@@ -13,8 +13,9 @@ from .core import UAWCore
 from .models import (
     Person, Team, Project, Task, Issue, Repository,
     Deployment, Document, Event, Workflow, Integration,
-    Approval, AuditEvent, ResourceMapping
+    Approval, AuditEvent
 )
+from .core.resource_mapping import ResourceMapping
 from .integrations import IntegrationRegistry
 from .orchestrator import TaskOrchestrator
 from .adapters import AdapterRegistry

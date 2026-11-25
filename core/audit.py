@@ -133,7 +133,7 @@ class AuditLogger:
     
     def __init__(
         self,
-        log_dir: Union[str, Path] = "/workspace/uaw/logs",
+        log_dir: Union[str, Path] = os.getenv("UAW_LOG_DIR", str(Path.home() / ".local" / "state" / "uaw" / "logs")),
         max_log_size: int = 10000,
         max_log_files: int = 5
     ):

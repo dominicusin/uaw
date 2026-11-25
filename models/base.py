@@ -28,6 +28,13 @@ class EntityType(Enum):
     AUDIT_EVENT = "audit_event"
 
 
+class EntityStatus(Enum):
+    """Lifecycle status shared by entities."""
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+    ARCHIVED = "archived"
+
+
 @dataclass
 class UAWIdentifier:
     """
@@ -65,7 +72,7 @@ class UAWIdentifier:
         }
 
 
-@dataclass
+@dataclass(kw_only=True)
 class BaseModel:
     """
     Base model for all UAW entities.
